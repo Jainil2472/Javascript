@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Document</title>
+</head>
+<style>
+    .bgcolor{
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        
+}
+.jainil{
+    font-size: 30px;
+}
+</style>
+<body class="bgcolor">
+    <h1>hello jainil</h1>
+    <p id="ptag" class="jainil">
+         ipsum dolor sit, amet consectetur adipisicing elit. Fuga recusandae quia minima deleniti rem unde a. Eaque similique consequatur vero perspiciatis ipsum minima, animi deleniti omnis explicabo ullam reprehenderit sit.
+    </p>
+    <button id="btn" onclick="onclicked()">click me</button>
+
+
+    <br/><br/>
+
+    <ul>
+        <li>jainil</li>
+        <li>hil</li>
+        <li>kevat</li>
+        <li>parth</li>
+        <li>nirav</li>
+        <li>om</li>
+        <li>anmol</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    document.getElementById("ptag").setAttribute("id","jainill");
+    function onclicked(){
+        const b = document.getElementsByClassName("jainil");
+        b.style.backgroundColor = 'red';
+    }
+
+    let lists=document.querySelectorAll('li');
+    lists[5].style.color="red"
+    lists.forEach(function (i){
+        i.style.color="green"
+    });
+    let loop = Array.from(lists);
+    for (const i of loop) {
+        i.style.backgroundColor="yellow";
+    }
+</script> 

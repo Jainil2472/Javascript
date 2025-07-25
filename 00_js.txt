@@ -1,0 +1,222 @@
+some years ago the js is only run in browser engine then they take the engine and give other names like node, deno now we have standalone engine
+
+* let vs var 
+    -> let cannot be re-declared in its scope where var can be declare 
+
+* Symbol is use for cover the data and define it uniquely means when we compare two same symbol it return false 
+* Two types of memory stack and heap
+    @ Stack memory - 
+        -> The stack memory is use to store primitive datatype
+        -> In stack it always gives copy value of the original data. means we are not changing in the original data we are changing in copy of the original data
+        -> exp: when we use strings we use some methods like .toUpperCase() it change the data in copied value not in main value means after that we print the original value it print the main data not changed data 
+    @ Heap memory -
+        -> The heap memory is use to store non-primitive datatype
+        -> In heap it always give the reference of the original data
+        
+* String inter polation -> it is printing syntax to print multiple variables and output strings 
+    -> exp:- console.log(`Hello i am ${name}.i am ${age} years old.`);
+* String Functions:- 
+    1). charAt
+    2). indexOf
+    3). includes        ->it is use to check the given characters are include or not
+    4). trim            ->trim is use to trim the spaces from the string it only trim first and last spaces of the string
+    5). substring       ->using this we can create substring of the original string
+    6). slice           ->it is use to select some part of the string we can also use negative values it start from the end of the string
+    7). __protocol__
+    8). replceAll       ->it replace all values from the string
+    9). replace         -> this replace only first value
+   10). startwith
+   11). includes
+   12). split           ->we can split all the string based on some condition
+   13). concat          ->use to combine two strings
+   14). endsWith
+       many more to discover
+
+*Number Function 
+    1). toLocaleString('en-IN')     ->it convert in this format 10,00,000 if we remove the 'en-IN' then 100,000
+    2). toPrecision
+    3). toFixed
+    4). toString 
+
+*Maths Functions
+    1). round
+    2). ceil
+    3). floor
+    4). min 
+    5). max 
+    6). abs
+    7). random
+
+* Date & time -> it is object in js
+    Functions are simple it convert the complex date format to simple date format 
+
+    1). toString
+    2). toISOString
+    3). tolocalDateString
+    
+* Array -> it is linear data structure where all data are arranged sequentially 
+        -> it store multiple items in single variable
+        
+        -> it always create shallow copies not deep copies
+            -> shallow copies are it always give reference of original data 
+            -> In deep copies it always give us copy of the original value 
+        
+        ->methods 
+        1). push 
+        2). pop 
+        3). slice        the difference between slice and splice 1). in slice last element does not count and in splice the last element count
+        4). splice                                              2). splice manipulate the original value and slice doesn't do this
+        5). shift
+        6). unshift         this is not good for our code in this we add some data at starting and other data will be shifted this can be worst in case of if we have to unshift very large amount of data
+        7). concat   combine two arrays 
+        8). spread operator          to combine the multiple arrays in concat we can combine two arrays but in spread we can combine multiple arrays also
+        9). Array.of()
+       10). Array.from()
+       11). Array.isArray()
+
+* Objects :- there are two methods to create Objects 1). constructor 2). literal 
+    1). constructor :- when we use constructor method it create singleton
+            exp:- object.create
+
+    2). literal :- when we use literal method it create multiple instance not singleton
+            exp:- let object_name = {...};
+
+* rest & spreade (...)
+    in both case "..." is used 
+
+* function :-
+
+@this
+-> when we print 'this' keyword in vscode it show us nothing but when we print in browser then it show us window object means in browse always there is an object called windows that's why we can perform many windows events like click, form submit, alert message 
+-> 'this' is actually used in object not in function if we print this in function it show us so many tings but if we use this.variable_name it does not work then       
+
+@arrow function
+-> syntax :- function_name(parameter) => ...
+this is use in react 
+
+@iife :-
+-> to run function immediately 
+-> sometime problem with global scope's pollution that's why we use this
+
+
+//////////////////////////////////imp////////////////////////////////////
+
+* javascript execution context
+   @ in js execution context there are some execution context 
+     1). global execution context
+        -> when js code is created the globule execution context is automatically created and then it referred by 'this' means when we print 'this' in browser it show us his global values and in node it show us his global values 
+     2). function execution context 
+     3). evalv execution context 
+        -> it is property of global 
+
+  @ how code is run :-
+     there are tow phase 
+     1). memorycreation phase
+        -> in this phase the memory is created for variables 
+     2). execution phase 
+        -> in this phase the code is execueted means values are allocated to variable and functions are perform
+
+
+when function is called for his new execution context is created and new variable enviornment and execution thread means now both phase is run again memorycreation phase and execution phase 
+
+///////////////////////////////////////exp//////////////////////////////////////
+let num1 = 10;
+let num2 = 20;
+function add(n1,n2){
+    let total= n1+n2;
+    return total;
+}
+let result = add(num1,num2)
+
+//global execution context is created 
+memory creation phase :-   
+    num1 <- undefined
+    num2 <- undefined
+    add <- defination
+    result <- undefined
+
+execution phase :-
+    num1 <- 10
+    num2 <- 20
+    result <- //for this new execution context is created, new variable enviornment and new execution thread created 
+                memory creation phase :-
+                    num1 <- undefined
+                    num2 <- undefined
+                    total <- undefined
+                execution phase :-
+                    num1 <- 10
+                    num2 <- 20
+                    total <- 30         // here it return to the parent/globale scope
+                
+                /////////////after this this execution context will deleted ///////////
+    javascript code is run in thread 
+
+callStack ---?--- 
+that's how  js code is run 
+
+* === 
+check the datatype of the variables
+
+* in switch it check all the condition exept default that's why we need to use break 
+
+* falsey values :- 0, false, -0, BigInt 0n, "", null, NaN, undefined
+* truethy values :- "0", "false", [], {}, function(){this is called empty functions}
+
+
+* Object.keys(obj_name) <- it return array 
+
+*nullish coalescing 
+ -> syntax let j = 10 ?? 20; //here if 1st value is null or undefined then it assign the 2nd value 
+
+ * terniary operator
+ -> (codition ? if true then print this : if false then print this )
+
+ *loops
+ -> for of loop :- it is use in arrays only it store the actual values of the array and if we used in map it show us maps values in multiple arrays 
+ -> for in loop :- it is use in objects in this it store the key values
+ -> foreach :- in this we need to provide callback function and there is no name of callback function and we need to add parameter 
+                for each never return any values 
+here one thing if we want to add some condition in for each we can do that but if we want to store any thing we cannot do that that's why we use the filter method it return the values but foreach doesnot return any values
+
+
+
+
+*********************************************  THE DOM  ******************************************************
+Document Object Model
+
+it connects webpage to scripts
+
+* to select HTML element
+ -> document.getElementById("id name")
+ -> document.getElementByClassName("class name")
+ -> document.querySelector("class/id/tag_name") ->if we use this and if there are so many same name tags are there then it only select first tag
+ -> document.querySelectorAll("class/id/tag") ->in this it gives us nodelist just like array but not an array. we can iterate using foreach loop.if we want to convert in array we can using Array.from(variable_name);
+
+* tset id or class attribute name
+ -> document.getElementById("id name").setAttribute("id","diffrent id name");
+ 
+* innerText vs textContent vs innerHtml
+ -> in innerText it show us only the displayed text means if we use css and hide some text then it show us only displayed text not that hidden text
+ -> where in textContent it show all text 
+ -> where in innerHtml it show every thing if we define any h1 tag in it. it show the h1 tag also 
+        like - in p tag   -> hello how are <h5> you </h5> how are you doing 
+
+* create html tag in js
+    -> document.createElement('h1');
+    -> to set the attribute like class, id etc.. use setAttribute
+    -> tag reference.appendChild(new tag name) 
+       here tag reference meance where you want to add the new element 
+
+* Events 
+    -> .addEventListener('Click', () => {} )
+
+    learn from the mdn
+
+* Sync & Async tasks 
+    -> JS engine is work on single thread(means at a time it work on only one task) node and deno and many more are work on multiple engines 
+    -> async means work on multiple tasks at time 
+    -> sync means work on one task at time
+    -> to set the time out setTimeout(function,seconds//in mili seconds//); //it print only once after the timeout
+    -> to stop clearTimeout(timeout reference);
+    -> to set interval   setInterval(function,time,to pass any string or variables );        // it print it after every time out 
+    

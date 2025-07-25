@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(218, 215, 215); color: aliceblue; font-size: 50px;">
+    <div class="schoool">
+        <div class="std"><b>1</b></div>
+        <div class="std"><b>2</b></div>
+        <div class="std"><b>3</b></div>
+        <div class="std"><b>4</b></div>
+        <div class="std"><b>5</b></div>
+    </div>
+</body>
+<script>
+    let classes = document.querySelector(".schoool");
+    console.log(classes);
+    console.log(classes.children);
+    let color=169792;
+    let classid = 1;
+    
+    
+    for (const i of classes.children) {
+
+         i.style.color="#"+color;
+         color-=2300;
+         i.className="std"+classid;
+         classid++;
+
+    }
+
+    console.log(classes.firstElementChild.innerHTML);
+    classes.lastElementChild.style.backgroundColor="red";
+
+    // now creat new element 
+
+    let h1=document.createElement('h1');
+    // h1.className="h1class"
+    h1.setAttribute('class',"h1Class");
+    // h1.id="h1id";
+    // let j = document.createTextNode("hello jainil")
+    let j = document.querySelector('.std5');
+    console.log(h1);
+    
+    j.appendChild(h1);
+    document.body.appendChild(h1);
+    
+    
+    
+</script>
+</html>

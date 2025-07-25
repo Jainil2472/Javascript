@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="car_list">
+        <li>creta</li>
+    </ul>
+    <button class="buttonn" >clickme</button>
+    <div class="hello">hello</div>
+</body>
+</html>
+<script>
+        function cars(name) {
+        let newcar = document.createElement('li');
+        newcar.innerHTML=``;
+        document.querySelector('.car_list').appendChild(newcar);
+    }
+    cars("BMW X4");
+
+    function optimalapproch(carname) {
+        let li = document.createElement('li');
+        li.appendChild(document.createTextNode(carname));
+        document.querySelector('.car_list').appendChild(li);
+
+    }
+    optimalapproch("BMW X8");
+    optimalapproch("Innova");
+
+
+    //edit
+
+    let edit2 = document.querySelector('li:nth-child(3)');
+    console.log(edit2);
+    edit2.appendChild(document.createTextNode("BMW X7"));
+    
+
+    document.querySelector(".buttonn").addEventListener('click',(e) =>{
+        const list = document.querySelector(".hello");
+        list.innerHTML=`hello how are you ${e}`
+        list.style.color="red";
+        
+    } );
+
+
+</script>
