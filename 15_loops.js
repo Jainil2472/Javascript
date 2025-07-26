@@ -98,3 +98,13 @@ arr3.forEach((val,key)=>{
 })
 
 
+
+
+// foreach with arrow function
+
+let array1=[1,5,9,3,7,4,6,2];
+array1.forEach((i)=>{
+
+    console.log(i);
+    
+})
