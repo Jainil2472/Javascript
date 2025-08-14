@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind in HTML</title>
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black place-content-center">
+
+    <div class=" w-80 rounded-lg shadow-lg bg-zinc-400 p-7 text-center place-content-center">
+        <img src="" class="rounded-lg" id="img" alt="not available">
+
+        <h2 class="text-2xl font-bold" id="name">Name : </h2> 
+        <h4 id="followers">Followers : </h4>
+        <h4 id="following">Following : </h4>
+        <button id="btn" class='bg-black text-white rounded-lg w-5/6 h-7 btn-primary'>Show Data </button> 
+    </div>
+
+    
+    
+</body>
+<script>
+    let url = "https://api.github.com/users/Jainil2472";
+    // console.log("hi");
+    let data;
+document.querySelector('#btn').addEventListener('click', (e) =>{
+        
+    const req = new XMLHttpRequest();
+    req.open('GET',url);
+    req.onreadystatechange = () => {
+        if(req.readyState == 4){ 
+
+            
+            // console.log(req.responseText);
+            data = JSON.parse(req.responseText);
+            document.querySelector('#img').src=data.avatar_url;
+            document.querySelector('#name').textContent = 'Name : '+ data.name;
+            document.querySelector('#followers').textContent = 'Followers : ' + data.followers;
+            document.querySelector('#following').textContent = 'Following : ' + data.following;
+        }
+    }
+
+    req.send();
+    });
+    
+   
+</script>
+
+</html>
