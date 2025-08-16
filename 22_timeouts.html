@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>change background</title>
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="place-content-center place-items-center m-50">
+        
+    <button class="bg-black text-white rounded-lg w-1/6 h-7 btn-primary m-50" id="start">Start</button>
+    <button class="bg-black text-white rounded-lg w-1/6 h-7 btn-primary m-50" id="stop">Stop</button>
+
+</body>
+</html>
+<script>
+    let background = document.querySelector('body'); 
+    let interval;
+
+    let start = document.querySelector("#start").addEventListener('click', (e) => {
+    if(!interval){
+
+        interval=setInterval(change_color,500);
+    }
+
+    })
+    function change_color () {
+        let values = "1234567890ABCDEF"
+        let code ="#";
+
+        for(let i =0 ; i< 6; i++){
+            let char = Math.floor(Math.random() * values.length);
+            code += values.charAt(char);
+            
+        }
+        console.log(code);
+        
+        background.style.backgroundColor = code;
+    }
+    let stop = document.querySelector('#stop').addEventListener('click', (e)=>{
+        clearInterval(interval);
+        interval=null;
+    })
+</script>
